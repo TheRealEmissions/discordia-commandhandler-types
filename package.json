@@ -1,0 +1,19 @@
+{
+  "name": "ts-modular-bot-addon-command_handler-types",
+  "version": "1.0.0",
+  "description": "Types for Command Handler addon for Modular Series",
+  "main": "command-handler/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheRealEmissions/ts-modular-bot-addon-command_handler-types.git"
+  },
+  "author": "Emissions#2565",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheRealEmissions/ts-modular-bot-addon-command_handler-types/issues"
+  },
+  "homepage": "https://github.com/TheRealEmissions/ts-modular-bot-addon-command_handler-types#readme"
+}
