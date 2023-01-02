@@ -1,3 +1,4 @@
+import { SlashCommandBuilder } from "@discordjs/builders";
 import App from "./App.js";
 import { ChannelType } from "discord-api-types/v10";
 export declare enum Locale {
@@ -128,6 +129,7 @@ declare class CommandConstructor {
     App: App;
     constructor(App: App);
     private static builders;
+    getBuilders(): SlashCommandBuilder[];
     static command(name: string, description: string, options?: CommandOptions, args?: CommandArgument[]): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
     static subcommandGroup(commandName: string, name: string, description: string, options?: Omit<CommandOptions, "dmPermission">): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
     static subcommand(commandName: string, subcommandGroupName: string | null, subcommandName: string, description: string, isSubcommandGroup: boolean, options?: Omit<CommandOptions, "dmPermission">, args?: CommandArgument[]): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
