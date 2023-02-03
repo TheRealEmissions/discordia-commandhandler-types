@@ -132,6 +132,6 @@ declare class CommandConstructor {
     getBuilders(): SlashCommandBuilder[];
     static command(name: string, description: string, options?: CommandOptions, args?: CommandArgument[]): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
     static subcommandGroup(commandName: string, name: string, description: string, options?: Omit<CommandOptions, "dmPermission">): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
-    static subcommand(commandName: string, subcommandGroupName: string | null, subcommandName: string, description: string, isSubcommandGroup: boolean, options?: Omit<CommandOptions, "dmPermission">, args?: CommandArgument[]): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
+    static subcommand(commandName: string, subcommandGroupName: string | null, subcommandName: string, description: string, options?: Omit<CommandOptions, "dmPermission">, args?: CommandArgument[]): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
 }
 export default CommandConstructor;
