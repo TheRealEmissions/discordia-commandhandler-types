@@ -125,13 +125,33 @@ type CommandArgument = {
     minValue?: never;
     maxValue?: never;
 };
+export type Command = {
+    name: string;
+    description: string;
+    options?: CommandOptions;
+    args?: CommandArgument[];
+};
+export type SubcommandGroup = {
+    commandName: string;
+    name: string;
+    description: string;
+    options?: Omit<CommandOptions, "dmPermission">;
+};
+export type Subcommand = {
+    commandName: string;
+    subcommandGroupName?: string;
+    subcommandName: string;
+    description: string;
+    options?: Omit<CommandOptions, "dmPermission">;
+    args?: CommandArgument[];
+};
 declare class CommandConstructor {
     App: App;
     constructor(App: App);
     private static builders;
     getBuilders(): SlashCommandBuilder[];
-    static command(name: string, description: string, options?: CommandOptions, args?: CommandArgument[]): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
-    static subcommandGroup(commandName: string, name: string, description: string, options?: Omit<CommandOptions, "dmPermission">): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
-    static subcommand(commandName: string, subcommandGroupName: string | null, subcommandName: string, description: string, options?: Omit<CommandOptions, "dmPermission">, args?: CommandArgument[]): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
+    static command({ name, description, options, args }: Command): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
+    static subcommandGroup({ commandName, name, description, options, }: SubcommandGroup): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
+    static subcommand({ commandName, subcommandGroupName, subcommandName, description, options, args, }: Subcommand): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
 }
 export default CommandConstructor;
