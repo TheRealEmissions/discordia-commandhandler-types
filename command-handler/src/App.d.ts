@@ -5,5 +5,8 @@ declare class App extends BaseApp {
     Builders: typeof CommandConstructor;
     constructor();
     init(): Promise<void>;
+    command(): typeof CommandConstructor.command;
+    subcommand(): typeof CommandConstructor.subcommand;
+    subcommandGroup(): typeof CommandConstructor.subcommandGroup;
 }
 export default App;
