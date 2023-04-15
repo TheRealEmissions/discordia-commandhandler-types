@@ -130,12 +130,14 @@ export type Command = {
     description: string;
     options?: CommandOptions;
     args?: CommandArgument[];
+    disabled?: boolean;
 };
 export type SubcommandGroup = {
     commandName: string;
     name: string;
     description: string;
     options?: Omit<CommandOptions, "dmPermission">;
+    disabled?: boolean;
 };
 export type Subcommand = {
     commandName: string;
@@ -144,14 +146,15 @@ export type Subcommand = {
     description: string;
     options?: Omit<CommandOptions, "dmPermission">;
     args?: CommandArgument[];
+    disabled?: boolean;
 };
 declare class CommandConstructor {
     App: App;
     constructor(App: App);
     private static builders;
     getBuilders(): SlashCommandBuilder[];
-    static command({ name, description, options, args }: Command): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
-    static subcommandGroup({ commandName, name, description, options, }: SubcommandGroup): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
-    static subcommand({ commandName, subcommandGroupName, subcommandName, description, options, args, }: Subcommand): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
+    static command({ name, description, options, args, disabled, }: Command): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
+    static subcommandGroup({ commandName, name, description, options, disabled, }: SubcommandGroup): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
+    static subcommand({ commandName, subcommandGroupName, subcommandName, description, options, args, disabled, }: Subcommand): (target: any, propertyKey: string, descriptor: PropertyDescriptor) => void;
 }
 export default CommandConstructor;

@@ -8,7 +8,9 @@ declare abstract class BaseApp extends Base {
     name: string;
     load: boolean;
     static Client: typeof DiscordClient;
+    getClient(): import("ts-modular-bot-addon-discord_client-types/discord-client/src/App").default;
     static Events: typeof Events;
+    getEvents(): import("ts-modular-bot-addon-events-types/events/src/App").default;
     abstract init(): Promise<void>;
     getDependencies(): Dependency[];
 }
